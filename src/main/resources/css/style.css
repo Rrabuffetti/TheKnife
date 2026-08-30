@@ -1,0 +1,186 @@
+/*
+ * TheKnife - foglio di stile dell'interfaccia client.
+ * Palette ispirata a un ricettario/guida gastronomica: rosso vivo per gli
+ * accenti principali, oro per i dettagli, sfondo caldo crema. Bottoni a
+ * pillola, schede con ombra, campi con bordo che si accende al focus.
+ * Le vere animazioni (dissolvenza tra schermate, ingrandimento al hover)
+ * sono in Java (vedi theknife.client.Animazioni): JavaFX CSS non supporta
+ * transizioni animate, solo cambi di stato istantanei tramite pseudo-classi
+ * come :hover, usate qui per i colori.
+ */
+
+.root {
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-size: 13px;
+}
+
+.pagina {
+    -fx-background-color: linear-gradient(to bottom right, #FFF8F0, #FCEBDD);
+}
+
+/* ===================== Barra di navigazione ===================== */
+
+.barra-navigazione {
+    -fx-background-color: linear-gradient(to right, #7B241C, #C0392B 55%, #D9534F);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 12, 0, 0, 3);
+}
+
+.barra-navigazione .label {
+    -fx-text-fill: white;
+}
+
+.logo {
+    -fx-font-size: 21px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFD966;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.45), 3, 0, 1, 1);
+}
+
+.barra-navigazione .button {
+    -fx-background-color: rgba(255,255,255,0.14);
+    -fx-text-fill: white;
+    -fx-background-radius: 20;
+    -fx-padding: 7 16 7 16;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-border-color: transparent;
+}
+.barra-navigazione .button:hover {
+    -fx-background-color: rgba(255,255,255,0.32);
+}
+
+/* ===================== Testi ===================== */
+
+.titolo {
+    -fx-font-size: 27px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #C0392B;
+    -fx-effect: dropshadow(gaussian, rgba(192,57,43,0.15), 2, 0, 0, 1);
+}
+
+.sottotitolo {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #7B241C;
+}
+
+.errore {
+    -fx-text-fill: #C0392B;
+    -fx-font-weight: bold;
+}
+
+.nota {
+    -fx-text-fill: #8a8a8a;
+    -fx-font-size: 11px;
+    -fx-font-style: italic;
+}
+
+/* ===================== Contenitori ===================== */
+
+.riquadro {
+    -fx-background-color: white;
+    -fx-padding: 20;
+    -fx-background-radius: 16;
+    -fx-effect: dropshadow(gaussian, rgba(123,36,28,0.18), 14, 0, 0, 5);
+}
+
+.card-recensione {
+    -fx-background-color: white;
+    -fx-padding: 14;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.10), 8, 0, 0, 3);
+}
+.card-recensione:hover {
+    -fx-effect: dropshadow(gaussian, rgba(192,57,43,0.28), 12, 0, 0, 5);
+}
+
+.risposta {
+    -fx-font-style: italic;
+    -fx-text-fill: #5D4037;
+    -fx-background-color: #FFF3E0;
+    -fx-padding: 8;
+    -fx-background-radius: 8;
+}
+
+/* ===================== Pulsanti ===================== */
+
+.button {
+    -fx-background-radius: 18;
+    -fx-cursor: hand;
+    -fx-padding: 8 18 8 18;
+    -fx-background-color: #FBE3DD;
+    -fx-text-fill: #7B241C;
+    -fx-font-weight: bold;
+}
+.button:hover {
+    -fx-background-color: #F6C7BB;
+}
+.button:armed {
+    -fx-background-color: #EFAA98;
+}
+
+.bottone-primario {
+    -fx-background-color: linear-gradient(to bottom, #E74C3C, #C0392B);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 24;
+    -fx-padding: 10 26 10 26;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(192,57,43,0.45), 10, 0, 0, 3);
+}
+.bottone-primario:hover {
+    -fx-background-color: linear-gradient(to bottom, #FF7A6B, #E74C3C);
+}
+.bottone-primario:armed {
+    -fx-background-color: linear-gradient(to bottom, #C0392B, #922B21);
+}
+
+/* ===================== Campi di input ===================== */
+
+.text-field, .text-area, .combo-box, .date-picker, .password-field {
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: #E6CCBB;
+    -fx-border-width: 1.4;
+    -fx-background-color: white;
+}
+.text-field:focused, .text-area:focused, .combo-box:focused, .date-picker:focused, .password-field:focused {
+    -fx-border-color: #E74C3C;
+    -fx-effect: dropshadow(gaussian, rgba(231,76,60,0.35), 6, 0, 0, 0);
+}
+
+.check-box .box {
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
+    -fx-border-color: #D98E7C;
+}
+.check-box:selected .mark {
+    -fx-background-color: #C0392B;
+}
+
+/* ===================== Liste ===================== */
+
+.list-view {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 2 0 2 0;
+}
+.list-cell {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-padding: 12;
+    -fx-background-insets: 4 6 4 6;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 5, 0, 0, 2);
+    -fx-cursor: hand;
+}
+.list-cell:hover {
+    -fx-background-color: #FFF1EC;
+}
+.list-cell:filled:selected {
+    -fx-background-color: #FCDCD4;
+    -fx-text-fill: #7B241C;
+}
+
+.scroll-pane, .scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}

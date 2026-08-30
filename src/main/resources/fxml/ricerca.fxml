@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="theknife.client.controller.RicercaController"
+      spacing="10" styleClass="pagina">
+    <padding>
+        <Insets top="20" right="30" bottom="20" left="30"/>
+    </padding>
+
+    <Label text="Cerca ristoranti" styleClass="titolo"/>
+
+    <VBox spacing="8" styleClass="riquadro">
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="Luogo (obbligatorio):"/>
+            <TextField fx:id="campoLuogo" promptText="Citta' o nazione" prefWidth="220"/>
+            <Label text="Tipo di cucina:"/>
+            <ComboBox fx:id="comboTipoCucina" prefWidth="200"/>
+        </HBox>
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="Prezzo minimo (EUR):"/>
+            <TextField fx:id="campoPrezzoMin" prefWidth="80"/>
+            <Label text="Prezzo massimo (EUR):"/>
+            <TextField fx:id="campoPrezzoMax" prefWidth="80"/>
+            <Label text="Stelle minime:"/>
+            <ComboBox fx:id="comboStelleMinime" prefWidth="120"/>
+        </HBox>
+        <HBox spacing="20" alignment="CENTER_LEFT">
+            <CheckBox fx:id="checkDelivery" text="Delivery (clic per indifferente/si/no)" allowIndeterminate="true" indeterminate="true"/>
+            <CheckBox fx:id="checkPrenotazione" text="Prenotazione online (clic per indifferente/si/no)" allowIndeterminate="true" indeterminate="true"/>
+        </HBox>
+        <Button text="Cerca" onAction="#cerca" styleClass="bottone-primario"/>
+        <Label fx:id="etichettaErrore" styleClass="errore"/>
+    </VBox>
+
+    <Label fx:id="etichettaRisultati"/>
+    <ListView fx:id="lista" VBox.vgrow="ALWAYS"/>
+    <Button text="Vedi dettagli del ristorante selezionato" onAction="#vediDettagli"/>
+</VBox>

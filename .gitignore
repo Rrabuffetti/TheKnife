@@ -1,0 +1,20 @@
+target/
+*.class
+.settings/
+.classpath
+.project
+bin/*.class
+cp.txt
+dependency-reduced-pom.xml
+.claude/
+GUIDA-PROGETTO-SPIEGATA.md
+guida-didattica/
+doc/Guida-Progetto-Spiegata.pdf
+
+# comodita' locali (avvio rapido, immagini sorgente del manuale): non richieste
+# dalle specifiche del corso, escluse dalla consegna ma tenute sul PC
+Avvia-Client.bat
+Avvia-Postgres.bat
+Avvia-Server.bat
+Avvia-TheKnife.bat
+doc/screenshots/

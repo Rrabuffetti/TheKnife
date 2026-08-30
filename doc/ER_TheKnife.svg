@@ -1,0 +1,116 @@
+<svg viewBox="0 0 1400 850" xmlns="http://www.w3.org/2000/svg" role="img"
+     aria-label="Schema Entity-Relationship di TheKnife: Utente si specializza in Cliente e Ristoratore; Ristoratore possiede Ristorante; Ristorante e' offerto in piu' Cucine; Cliente scrive Recensione che riguarda un Ristorante; Cliente preferisce Ristorante con attributo data_aggiunta.">
+  <rect x="0" y="0" width="1400" height="850" fill="#fffdf8"/>
+
+  <style>
+    .entita { fill: #fdf6ec; stroke: #7a2e2e; stroke-width: 2; }
+    .assoc  { fill: #ffffff; stroke: #333333; stroke-width: 1.6; }
+    .isa    { fill: #ffffff; stroke: #333333; stroke-width: 1.6; }
+    .titolo { font: bold 15px sans-serif; fill: #7a2e2e; text-anchor: middle; }
+    .attr   { font: 12px sans-serif; fill: #222222; text-anchor: middle; }
+    .card   { font: 12px sans-serif; fill: #444444; }
+    .lbl    { font: bold 13px sans-serif; fill: #222222; text-anchor: middle; }
+    .linea  { stroke: #333333; stroke-width: 1.4; fill: none; }
+  </style>
+
+  <!-- ================= ENTITA' ================= -->
+
+  <!-- UTENTE -->
+  <rect class="entita" x="445" y="20" width="190" height="62" rx="3"/>
+  <text class="titolo" x="540" y="39">UTENTE</text>
+  <line x1="450" y1="46" x2="630" y2="46" stroke="#7a2e2e"/>
+  <text class="attr" x="540" y="61">id, nome, cognome, email, username</text>
+  <text class="attr" x="540" y="76">dataNascita, domicilio</text>
+
+  <!-- ISA -->
+  <line class="linea" x1="540" y1="82" x2="540" y2="112"/>
+  <polygon class="isa" points="540,112 516,144 564,144"/>
+  <text class="lbl" x="540" y="135">ISA</text>
+  <text class="card" x="572" y="118">(T, E)</text>
+  <line class="linea" x1="524" y1="144" x2="315" y2="178"/>
+  <line class="linea" x1="556" y1="144" x2="740" y2="178"/>
+
+  <!-- CLIENTE -->
+  <rect class="entita" x="230" y="180" width="170" height="55" rx="3"/>
+  <text class="titolo" x="315" y="202">CLIENTE</text>
+  <line x1="235" y1="209" x2="395" y2="209" stroke="#7a2e2e"/>
+  <text class="attr" x="315" y="224">(ruolo = CLIENTE)</text>
+
+  <!-- RISTORATORE -->
+  <rect class="entita" x="650" y="180" width="180" height="55" rx="3"/>
+  <text class="titolo" x="740" y="202">RISTORATORE</text>
+  <line x1="655" y1="209" x2="825" y2="209" stroke="#7a2e2e"/>
+  <text class="attr" x="740" y="224">(ruolo = RISTORATORE)</text>
+
+  <!-- RISTORANTE -->
+  <rect class="entita" x="980" y="180" width="190" height="55" rx="3"/>
+  <text class="titolo" x="1075" y="202">RISTORANTE</text>
+  <line x1="985" y1="209" x2="1165" y2="209" stroke="#7a2e2e"/>
+  <text class="attr" x="1075" y="224">nome, luogo, prezzo, delivery, prenotazione</text>
+
+  <!-- CUCINA -->
+  <rect class="entita" x="980" y="440" width="190" height="50" rx="3"/>
+  <text class="titolo" x="1075" y="461">CUCINA</text>
+  <line x1="985" y1="468" x2="1165" y2="468" stroke="#7a2e2e"/>
+  <text class="attr" x="1075" y="482">nome</text>
+
+  <!-- RECENSIONE -->
+  <rect class="entita" x="420" y="440" width="190" height="62" rx="3"/>
+  <text class="titolo" x="515" y="461">RECENSIONE</text>
+  <line x1="425" y1="468" x2="605" y2="468" stroke="#7a2e2e"/>
+  <text class="attr" x="515" y="483">stelle, testo, data</text>
+  <text class="attr" x="515" y="496">rispostaTesto, dataRisposta</text>
+
+  <!-- ================= RELAZIONE Possiede (Ristoratore - Ristorante), 1:N ================= -->
+  <polygon class="assoc" points="905,182 950,207 905,232 860,207"/>
+  <text class="lbl" x="905" y="211">Possiede</text>
+  <line class="linea" x1="830" y1="207" x2="860" y2="207"/>
+  <line class="linea" x1="950" y1="207" x2="980" y2="207"/>
+  <text class="card" x="836" y="197">(1,N)</text>
+  <text class="card" x="952" y="197">(1,1)</text>
+
+  <!-- ================= RELAZIONE Offre (Ristorante - Cucina), N:M ================= -->
+  <polygon class="assoc" points="1075,308 1112,335 1075,362 1038,335"/>
+  <text class="lbl" x="1075" y="339">Offre</text>
+  <line class="linea" x1="1075" y1="235" x2="1075" y2="308"/>
+  <line class="linea" x1="1075" y1="362" x2="1075" y2="440"/>
+  <text class="card" x="1081" y="255">(0,N)</text>
+  <text class="card" x="1081" y="425">(0,N)</text>
+
+  <!-- ================= RELAZIONE Scrive (Cliente - Recensione), 1:N ================= -->
+  <polygon class="assoc" points="395,308 435,335 395,362 355,335"/>
+  <text class="lbl" x="395" y="339">Scrive</text>
+  <polyline class="linea" points="315,235 315,335 355,335"/>
+  <line class="linea" x1="435" y1="335" x2="480" y2="440"/>
+  <text class="card" x="321" y="270">(0,N)</text>
+  <text class="card" x="445" y="390">(1,1)</text>
+
+  <!-- ================= RELAZIONE Riguarda (Recensione - Ristorante), N:1 ================= -->
+  <polygon class="assoc" points="760,308 800,335 760,362 720,335"/>
+  <text class="lbl" x="760" y="339">Riguarda</text>
+  <line class="linea" x1="610" y1="450" x2="720" y2="335"/>
+  <line class="linea" x1="800" y1="335" x2="1000" y2="235"/>
+  <text class="card" x="628" y="410">(1,1)</text>
+  <text class="card" x="960" y="265">(0,N)</text>
+
+  <!-- ================= RELAZIONE Preferisce (Cliente - Ristorante), N:M ================= -->
+  <polygon class="assoc" points="700,595 745,620 700,645 655,620"/>
+  <text class="lbl" x="700" y="624">Preferisce</text>
+  <polyline class="linea" points="315,235 315,620 655,620"/>
+  <polyline class="linea" points="745,620 1075,620 1075,235"/>
+  <text class="card" x="321" y="590">(0,N)</text>
+  <text class="card" x="1010" y="590">(0,N)</text>
+
+  <ellipse cx="700" cy="705" rx="85" ry="24" fill="#ffffff" stroke="#333333" stroke-width="1.4"/>
+  <text class="attr" x="700" y="709">data_aggiunta</text>
+  <line class="linea" x1="700" y1="645" x2="700" y2="681"/>
+
+  <!-- ================= LEGENDA ================= -->
+  <g transform="translate(30,760)">
+    <rect x="0" y="0" width="380" height="80" fill="#ffffff" stroke="#999999" stroke-width="1"/>
+    <text x="10" y="18" class="lbl" text-anchor="start">Legenda</text>
+    <text x="10" y="36" class="attr" text-anchor="start">(min,max): vincolo di cardinalita' di partecipazione</text>
+    <text x="10" y="52" class="attr" text-anchor="start">ISA (T,E): specializzazione totale ed esclusiva</text>
+    <text x="10" y="68" class="attr" text-anchor="start">Attributi in forma compatta nell'entita' (non ovali separati)</text>
+  </g>
+</svg>

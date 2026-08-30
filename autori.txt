@@ -1,0 +1,5 @@
+Rabuffetti, Riccardo, 756625, VA
+Gorla, Davide, 756140, VA
+Scarselli, Francesco, 756661, VA
+
+Repository GitHub: https://github.com/Rrabuffetti/TheKnife

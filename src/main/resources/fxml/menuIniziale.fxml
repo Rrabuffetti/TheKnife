@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="theknife.client.controller.MenuInizialeController"
+      alignment="CENTER" spacing="20" styleClass="pagina">
+    <padding>
+        <Insets top="60" right="60" bottom="60" left="60"/>
+    </padding>
+
+    <Label text="Benvenuto su TheKnife" styleClass="titolo"/>
+    <Label text="Trova i migliori ristoranti nel mondo, in base al luogo, alla tipologia, alla fascia di prezzo e ai servizi offerti." wrapText="true" styleClass="sottotitolo"/>
+
+    <VBox spacing="10" alignment="CENTER" styleClass="riquadro">
+        <Label text="Hai gia' un account?"/>
+        <Button text="Accedi" onAction="#vaiLogin" styleClass="bottone-primario"/>
+        <Button text="Registrati" onAction="#vaiRegistrazione"/>
+    </VBox>
+
+    <VBox spacing="10" alignment="CENTER" styleClass="riquadro">
+        <Label text="Oppure continua come ospite indicando un luogo:"/>
+        <TextField fx:id="campoLuogo" promptText="Es. Milano, Italia" maxWidth="300"/>
+        <Button text="Continua come ospite" onAction="#continuaComeGuest"/>
+        <Label fx:id="etichettaErrore" styleClass="errore"/>
+    </VBox>
+</VBox>

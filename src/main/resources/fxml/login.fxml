@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="theknife.client.controller.LoginController"
+      alignment="CENTER" spacing="12" styleClass="pagina">
+    <padding>
+        <Insets top="60" right="60" bottom="60" left="60"/>
+    </padding>
+
+    <Label text="Accedi a TheKnife" styleClass="titolo"/>
+
+    <VBox spacing="10" maxWidth="320" styleClass="riquadro">
+        <Label text="Email"/>
+        <TextField fx:id="campoEmail"/>
+        <Label text="Password"/>
+        <PasswordField fx:id="campoPassword"/>
+
+        <Label text="Accedi come"/>
+        <HBox spacing="15">
+            <RadioButton fx:id="radioCliente" text="Cliente" selected="true"/>
+            <RadioButton fx:id="radioRistoratore" text="Ristoratore"/>
+        </HBox>
+        <Label text="Se la tua email e' registrata sia come cliente sia come ristoratore, scegli qui con quale dei due vuoi accedere."
+               styleClass="nota" wrapText="true"/>
+
+        <Button text="Accedi" onAction="#accedi" styleClass="bottone-primario"/>
+        <Label fx:id="etichettaErrore" styleClass="errore" wrapText="true"/>
+    </VBox>
+
+    <Button text="Torna al menu iniziale" onAction="#tornaAlMenu"/>
+</VBox>
